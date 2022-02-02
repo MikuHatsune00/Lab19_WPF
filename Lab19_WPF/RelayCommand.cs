@@ -12,6 +12,7 @@ namespace Lab19_WPF
         private readonly Action<object> execute;
         private readonly Func<object, bool> canExecute;
         
+
         public event EventHandler CanExecuteChanged
         {
             add => CommandManager.RequerySuggested += value;
@@ -22,6 +23,8 @@ namespace Lab19_WPF
         { execute = Execute ?? throw new ArgumentNullException(nameof(Execute));
             canExecute = CanExecute;
         }
+
+       
 
         public bool CanExecute(object parameter) => canExecute?.Invoke(parameter) ?? true;
 

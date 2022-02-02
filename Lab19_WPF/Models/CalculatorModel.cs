@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lab19_WPF.Models
+namespace Lab19_WPF
 {
     public class CalculatorModel
     {
@@ -13,7 +13,7 @@ namespace Lab19_WPF.Models
         #endregion
 
         #region Constructors
-        public CalculatorModel(string firstOperator, string secondOperator, string operation)
+        public CalculatorModel (string firstOperator, string secondOperator, string operation)
         {
             ValidateOperator(firstOperator);
             ValidateOperator(secondOperator);
@@ -35,8 +35,7 @@ namespace Lab19_WPF.Models
             result = string.Empty;
         }
         public CalculatorModel()
-        {
-            FirstOperator = string.Empty;
+        { FirstOperator = string.Empty;
             SecondOperator = string.Empty;
             Operation = string.Empty;
             result = string.Empty;
@@ -96,7 +95,7 @@ namespace Lab19_WPF.Models
 
         private double DegreeToRadian(double angle)
         {
-            return Math.PI * angle / 180.0;
+            return Math.PI * angle / 180.0; 
         }
         private void ValidateOperator(string operand)
         {

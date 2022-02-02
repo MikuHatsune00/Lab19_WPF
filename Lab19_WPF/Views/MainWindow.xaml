@@ -6,13 +6,94 @@
         xmlns:local="clr-namespace:Lab19_WPF"
         xmlns:vm="clr-namespace:Lab19_WPF.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Calculator" Height="600" Width="450" Background="Black">
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
-    <StackPanel>
-        <TextBox Text="{Binding Path=R}"/>        
-        <Button Content="Рассчитать" Command="{Binding Path=GetLCommand}"/>
-        <TextBox Text="{Binding Path=L}"/>
-    </StackPanel>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Height="65"  Text="{Binding Path=Display, Mode=TwoWay}" TextAlignment="Right" FontSize="40" Padding="5">
+            <TextBlock.VerticalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+            </TextBlock.VerticalAlignment>
+            <TextBlock.Margin>
+                <Thickness>10,10,10,0</Thickness>
+            </TextBlock.Margin>
+            <TextBlock.Background>
+                <Brush>#FF494852</Brush>
+            </TextBlock.Background>
+        </TextBlock>
+        <TextBlock Grid.Row="1" Height="65"  Text="{Binding Path=FullExpression, Mode=TwoWay}" TextAlignment="Right" FontSize="40" Padding="5">
+            <TextBlock.VerticalAlignment>
+                <VerticalAlignment>Center</VerticalAlignment>
+            </TextBlock.VerticalAlignment>
+            <TextBlock.Margin>
+                <Thickness>10,0,10,10</Thickness>
+            </TextBlock.Margin>
+            <TextBlock.Background>
+                <Brush>#FF494852</Brush>
+            </TextBlock.Background>
+        </TextBlock>
+        <Grid Grid.Row="2" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Grid.Column="0" Background="Gray" Margin="1" Padding="10" Content="tan"
+                    Command="{Binding SingularOperationButtonPressCommand}" CommandParameter="tan"/>
+            <Button Grid.Row="0" Grid.Column="1" Background="Gray" Margin="1" Padding="10" Content="cos"
+                    Command="{Binding SingularOperationButtonPressCommand}" CommandParameter="cos"/>
+            <Button Grid.Row="0" Grid.Column="2" Background="Gray" Margin="1" Padding="10" Content="sin"
+                    Command="{Binding SingularOperationButtonPressCommand}" CommandParameter="sin"/>
+            <Button Grid.Row="0" Grid.Column="3" Background="#FFC87AE8" Margin="1" Padding="10" Content="/"
+                    Command="{Binding OperationButtonPressCommand}" CommandParameter="/"/>
+            <Button Grid.Row="1" Grid.Column="0" Background="WhiteSmoke" Margin="1" Padding="10" Content="7"
+                    Command="{Binding DigitButtonPressCommand}" CommandParameter="7"/>
+            <Button Grid.Row="1" Grid.Column="1" Background="WhiteSmoke" Margin="1" Padding="10" Content="8"
+                    Command="{Binding DigitButtonPressCommand}" CommandParameter="8"/>
+            <Button Grid.Row="1" Grid.Column="2" Background="WhiteSmoke" Margin="1" Padding="10" Content="9"
+                    Command="{Binding DigitButtonPressCommand}" CommandParameter="9"/>
+            <Button Grid.Row="1" Grid.Column="3" Background="#FFC87AE8" Margin="1" Padding="10" Content="x"
+                    Command="{Binding OperationButtonPressCommand}" CommandParameter="*"/>
+            <Button Grid.Row="2" Grid.Column="0" Background="WhiteSmoke" Margin="1" Padding="10" Content="4"
+                    Command="{Binding DigitButtonPressCommand}" CommandParameter="4"/>
+            <Button Grid.Row="2" Grid.Column="1" Background="WhiteSmoke" Margin="1" Padding="10" Content="5"
+                    Command="{Binding DigitButtonPressCommand}" CommandParameter="5"/>
+            <Button Grid.Row="2" Grid.Column="2" Background="WhiteSmoke" Margin="1" Padding="10" Content="6"
+                    Command="{Binding DigitButtonPressCommand}" CommandParameter="6"/>
+            <Button Grid.Row="2" Grid.Column="3" Background="#FFC87AE8" Margin="1" Padding="10" Content="-"
+                    Command="{Binding OperationButtonPressCommand}" CommandParameter="-"/>
+            <Button Grid.Row="3" Grid.Column="0" Background="WhiteSmoke" Margin="1" Padding="10" Content="1"
+                    Command="{Binding DigitButtonPressCommand}" CommandParameter="1"/>
+            <Button Grid.Row="3" Grid.Column="1" Background="WhiteSmoke" Margin="1" Padding="10" Content="2"
+                    Command="{Binding DigitButtonPressCommand}" CommandParameter="2"/>
+            <Button Grid.Row="3" Grid.Column="2" Background="WhiteSmoke" Margin="1" Padding="10" Content="3"
+                    Command="{Binding DigitButtonPressCommand}" CommandParameter="3"/>
+            <Button Grid.Row="3" Grid.Column="3" Background="#FFC87AE8" Margin="1" Padding="10" Content="+"
+                    Command="{Binding OperationButtonPressCommand}" CommandParameter="+"/>
+            <Button Grid.Row="4" Grid.Column="0" Background="WhiteSmoke" Margin="1" Padding="10" Content="C"
+                    Command="{Binding DigitButtonPressCommand}" CommandParameter="C"/>
+            <Button Grid.Row="4" Grid.Column="1" Background="WhiteSmoke" Margin="1" Padding="10" Content="0"
+                    Command="{Binding DigitButtonPressCommand}" CommandParameter="0"/>           
+            <Button Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Background="#FFFF3165"  Margin="1" Padding="10" Content="="
+                    Command="{Binding OperationButtonPressCommand}" CommandParameter="="/>
+        </Grid>
+    </Grid>
+    
 </Window>
